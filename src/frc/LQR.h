@@ -67,7 +67,7 @@ Eigen::Matrix<double, States, States> DARE(
     // Solve WV₁ = Aₖ for V₁
     // Solve V₂Wᵀ = Gₖ for V₂
     StateMatrix V_1 = W_solver.solve(A_k);
-    StateMatrix V_2 = W_solver.solve(G_k.transpose()).transpose();
+    StateMatrix V_2 = W_solver.solve(G_k);
 
     // Gₖ₊₁ = Gₖ + AₖV₂Aₖᵀ
     // Hₖ₊₁ = Hₖ + V₁ᵀHₖAₖ
