@@ -13,18 +13,21 @@
 #include "src/Core/util/DisableStupidWarnings.h"
 
 /** \defgroup LU_Module LU module
-  * This module includes %LU decomposition and related notions such as matrix inversion and determinant.
-  * This module defines the following MatrixBase methods:
-  *  - MatrixBase::inverse()
-  *  - MatrixBase::determinant()
-  *
-  * \code
-  * #include <Eigen/LU>
-  * \endcode
-  */
+ * This module includes %LU decomposition and related notions such as matrix inversion and determinant.
+ * This module defines the following MatrixBase methods:
+ *  - MatrixBase::inverse()
+ *  - MatrixBase::determinant()
+ *
+ * \code
+ * #include <Eigen/LU>
+ * \endcode
+ */
 
+// IWYU pragma: begin_exports
 #include "src/LU/PartialPivLU.h"
+
+// IWYU pragma: end_exports
 
 #include "src/Core/util/ReenableStupidWarnings.h"
 
-#endif // EIGEN_LU_MODULE_H
+#endif  // EIGEN_LU_MODULE_H

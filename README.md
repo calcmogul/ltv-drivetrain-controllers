@@ -2,4 +2,4 @@
 
 Linear time-varying drivetrain controller implementations in C++14.
 
-Eigen 3.4.0 is bundled.
+Eigen 5.0.0 is bundled.
