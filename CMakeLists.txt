@@ -5,10 +5,7 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release" CACHE STRING "" FORCE)
 endif()
 
-# Generate compile_commands.json by default
-if(NOT CMAKE_EXPORT_COMPILE_COMMANDS)
-    set(CMAKE_EXPORT_COMPILE_COMMANDS "YES" CACHE STRING "" FORCE)
-endif()
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 project(ltv-drivetrain-controllers)
 
@@ -21,7 +18,11 @@ add_executable(
 )
 target_compile_options(
     ltv-diff-drive-controller
-    PRIVATE -Wall -Wextra -pedantic -Werror
+    PRIVATE -Wall -Wextra -pedantic
+)
+set_property(
+    TARGET ltv-diff-drive-controller
+    PROPERTY COMPILE_WARNING_AS_ERROR ON
 )
 target_compile_features(ltv-diff-drive-controller PUBLIC cxx_std_14)
 target_include_directories(ltv-diff-drive-controller PRIVATE src eigen3)
@@ -31,9 +32,10 @@ add_executable(
     ${frc_cpp_src}
     src/ltv_unicycle_controller_main.cpp
 )
-target_compile_options(
-    ltv-unicycle-controller
-    PRIVATE -Wall -Wextra -pedantic -Werror
+target_compile_options(ltv-unicycle-controller PRIVATE -Wall -Wextra -pedantic)
+set_property(
+    TARGET ltv-unicycle-controller
+    PROPERTY COMPILE_WARNING_AS_ERROR ON
 )
 target_compile_features(ltv-unicycle-controller PUBLIC cxx_std_14)
 target_include_directories(ltv-unicycle-controller PRIVATE src eigen3)
